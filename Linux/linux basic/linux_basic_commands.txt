@@ -1,0 +1,175 @@
+File and Directory Management:
+ 
+1) ls: List files and directories.
+Example: ls -la 
+Description: Displays all files and directories in long list format. "l" Long listing and "a" hidden files
+
+2) cd <directory>: Change the current directory.
+Example: cd /home/user
+Description: Changes the current directory.
+
+Example: cd ..
+Description: Back to previous directory.
+
+3) pwd: Print the current working directory.
+Example: pwd
+Description: It will show the current working directory. Output might be: /home/user
+
+4) mkdir <directory>: Create a new directory.
+Example: mkdir test_folder
+
+5) rmdir <directory>: Remove an empty directory.
+Example: rmdir test_folder
+
+6) rm <file>: Remove a file.
+Example: rm file.txt
+Description: Removes a file.
+
+Example: rm -r test2_folder
+Description: To remove a directory and its contents in Linux, you can use the rm command with the -r option, which stands for recursive. 
+
+7) cp <source> <destination>: Copy files or directories.
+Example: cp test_file.txt copy_test_file.txt
+Description: Copy files or directories to another directories or self directories
+
+Example: cp -i test_file.txt copy_test_file.txt
+Description: It will ask overwrite 'test_file.txt'? 
+
+Example: cp -r test_folder test2_folder
+Description: It will copy the test_folder to test2_folder
+
+8) mv <source> <destination>: Move or rename files or directories.
+Example: mv old_file.txt new_file.txt
+Description: It will rename the file name
+
+Example: mv -i file1.txt dir1
+Description: It will ask overwrite 'dir1/file1.txt'?
+
+Example: mv dir1 dir2
+Description: You can copy one directory to another directory 
+
+9) touch <file>: Create an empty file or update the timestamp of a file.
+Example: touch test3.txt
+Description: It will create empty file.
+
+10) scp: 
+Example: scp /local/file username@remote_host:/path/
+Description: SCP (Secure copy protocal): It is a command-line tool used for securely transferring files between a local and a remote host, or between two remote hosts, using SSH for encryption and authentication.
+
+File Viewing and Editing:
+
+1) cat <file>: Display the contents of a file.
+Example: cat text1.txt
+Description: Display the contents of a file.
+
+Example: cat > text2.txt
+Description: you can create a new file and add contents there. Afert completion just type "ctrl+d" to save and exit
+
+Example: cat test1.txt test2.txt
+Description: Display Contents of Multiple Files in one command
+
+2) more <file>: View a file one screen at a time.
+Example: more file1.txt
+Description: View a file one screen at a time.
+Note: you can go down side only and once contents end it will come out.
+
+3) less <file>: View a file with the ability to scroll.
+Example: less file1.txt
+Description: It will show long contents of file. If you want to go up than press "Up Arrow Key" or Press "Space Key". If you want to go down than press "Down Arrow Key" or "b". If you want to file some text than press "/" and type text like "/city". It will search city in contents. Press "q" for come out from "less" command.
+
+4) head <file>: Display the first few lines of a file.
+Example: head -n 10 file.txt
+Description: It will show 10 line form top. You can pass number according to your need.
+
+5) tail <file>: Display the last few lines of a file.
+Example: tail -n 10 file.txt
+Description: It will show 10 line form bottom. You can pass number according to your need.
+
+6) nano <file>: Open a file in the Nano text editor.
+Example: nano file.txt
+Description:
+
+7) vi <file>: Open a file in the Vi text editor.
+Example: vi file.txt
+Description:
+
+8) vim <file>: Open a file in the Vim text editor.
+Example: vim file.txt
+Description: Press i for --insert--, Press "Esc Key and :q" for quite, Press "Esc Key and :w" for write and Press "Esc Key and :wq" for write & quite  
+
+System Information
+
+1) uname -a: Show system information.
+Example: uname -a
+Description:
+
+2) df -h: Display disk space usage.
+Example: df -h
+Description:
+
+3) du -h <directory>: Show disk usage of a directory.
+Example:
+Description:
+
+4) top: Display real-time system processes.
+Example: 1) top -u username: Display processes for a specific user.
+		 2) top -p pid: Monitor a specific process by its PID.
+
+Description: The top (table of processes) command shows a real-time view of running processes in Linux and display kernel-magaged tasks. 
+
+It will provides a system information summary that shows resource utilization, including CPU and memory usage.
+You can come out form "top" command using "q" and enter
+
+Note: top then "k": Kill the press by PID
+	  top then "d,s": To change interval of refress
+	  top then "u": To filter by usr
+	  top then "r": You can change nice value(If nice value is grater than 0 means low and less than 0 means high [-20 to 19])
+	  top then "m": Display Memmory usage
+
+5) ps aux: List all running processes.
+Example:
+Description:
+
+6) free -h: Show memory usage.
+Example:
+Description:
+
+7) uptime: uptime command displays the system's uptime.
+Example: uptime
+Description: uptime command displays the system's uptime, or how long it has been running, and when it was last booted.
+
+8) nohup: The nohup command in Linux is used to run another command or script in the background, allowing it to continue running even after the user has logged out.
+
+9) jobs: It will show active jobs
+
+10) bg: Resume jobs to the background
+
+11) fg: Resume jobs to the foreground
+
+Networking
+
+1) ifconfig or ip a: Display network interfaces.
+2) ping <hostname>: Check connectivity to a host.
+3) curl <url>: Fetch data from a URL.
+4) ssh <user>@<host>: Securely connect to a remote machine.
+
+User Management
+
+1) whoami: Display the current user.
+2) adduser <username>: Add a new user.
+3) deluser <username>: Remove a user.
+4) passwd <username>: Change a user's password.
+5) su <options> <username>: switch to another user account.
+
+Package Management (Debian-based)
+
+1) apt update: Update package lists.
+2) apt upgrade: Upgrade installed packages.
+3) apt install <package>: Install a package.
+4) apt remove <package>: Remove a package.
+
+Permissionsta
+
+1) chmod <permissions> <file>: Change file permissions.
+2) chown <user>:<group> <file>: Change file owner and group.
+

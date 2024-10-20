@@ -1,0 +1,122 @@
+Linux file structure is organized in a hierarchical directory tree, which starts from a single root directory denoted by '/'. Here’s an overview of the main directories and their purposes:
+
+1. / - The root directory, the starting point of the filesystem.
+
+2. /bin - Contains essential binary executables (commands) needed for system booting and repairing.
+
+3. /boot - Holds files required for the boot process, including the Linux kernel and initial RAM disk image.
+
+4. /dev - Contains device files that represent hardware devices. These files allow software to interact with hardware.
+
+5. /etc - Contains system-wide configuration files and settings for the system and applications.
+
+6. /home - The default directory for user home directories. Each user has a subdirectory here (e.g., '/home/user').
+
+7. /lib - Contains shared libraries needed by the binaries in '/bin' and '/sbin'.
+
+8. /media - A mount point for removable media like USB drives and CD-ROMs.
+
+9. /mnt - A temporary mount point for filesystems. Users can manually mount devices here.
+
+10. /opt - Used for installing optional software packages.
+
+11. /proc - A virtual filesystem that provides information about system processes and kernel parameters.
+
+12. /root - The home directory for the root user (administrator).
+
+13. /sbin - Contains system binaries, primarily for system administration tasks, that are usually run by the root user.
+
+14. /srv - Contains data for services provided by the system (e.g., web server files).
+
+15. /tmp - A directory for temporary files created by applications. This is usually cleared on reboot.
+
+16. /usr - Contains user utilities and applications, including subdirectories like '/usr/bin' (for user commands), '/usr/lib' (libraries), and '/usr/share' (shared files).
+
+17. /var - Contains variable data files, such as logs, databases, and spool files.
+
+Each directory has a specific purpose, helping to maintain organization and manageability within the system. Understanding this structure is essential for effective navigation and administration of a Linux system.
+
+
+1. / – Root 
+   Every single file and directory starts from the root directory
+   Only root user has write privilege under this directory.
+
+2. /bin – User Binaries
+	Contains binary executables.
+	Common Linux commands you need to use in single-user modes are located under this directory.
+	Commands used by all the users of the system are located here.
+	For example: ps, ls, ping, grep, cp.
+
+3. /sbin – System Binaries
+	Just like /bin, /sbin also contains binary executables.
+	But, the linux commands located under this directory are used typically by system administrator, for system maintenance purpose.
+	For example: iptables, reboot, fdisk, ifconfig, swapon
+
+4. /etc – Configuration Files
+	Contains configuration files required by all programs.
+	This also contains startup and shutdown shell scripts used to start/stop individual programs.
+	For example: /etc/resolv.conf, /etc/sysconfig/network-scripts/ifcfg-eth0
+
+5. /dev – Device Files
+	Contains device files.
+	These include terminal devices, usb, or any device attached to the system.
+	For example: /dev/tty1, /dev/usbmon0
+
+6. /proc – Process Information
+	Contains information about system process.
+	This is a pseudo file system contains information about running process. For example: /proc/{pid} directory contains information about the process with that particular pid.
+	This is a virtual file system with text information about system resources.
+	For example: /proc/uptime
+
+7. /var – Variable Files
+	var stands for variable files.
+	Content of the files that are expected to grow can be found under this directory.
+	This includes — system log files (/var/log); packages and database files (/var/lib); emails (/var/mail); print queues (/var/spool); lock files (/var/lock); temp files needed across reboots (/var/tmp);
+
+8. /tmp – Temporary Files
+	Directory that contains temporary files created by system and users.
+	Files under this directory are deleted when system is rebooted.
+
+9. /usr – User Programs 
+	Contains binaries, libraries, documentation, and source-code level programs.
+
+9.1. /usr/bin contains binary files for user programs. If you can’t
+    binary under /bin, look under /usr/bin. For example: at, awk, cc, less, scp
+
+9.2. /usr/sbin contains binary files for system administrators. If you system binary under /sbin, look under /usr/sbin.
+	For example: atd, cron, sshd, useradd, userdel
+
+9.3. /usr/lib contains libraries for /usr/bin and /usr/sbin
+
+9.4. /usr/local contains users programs that you install from source.
+	For example, when you install apache from source, it /usr/local/apache2
+
+10. /home – Home Directories
+	Home directories for all users to store their personal files.
+	For example: /home/john, /home/nikita
+11. /boot – Boot Loader Files
+	Contains boot loader related files.
+	Kernel initrd, vmlinux, grub files are located under /boot
+	For example: initrd.img-2.6.32-24-generic, vmlinuz-2.6.32-24-generic
+
+12. /lib – System Libraries
+	Contains library files that supports the binaries located under /bin and /sbin
+	Library filenames are either ld* or lib*.so.*
+	For example: ld-2.11.1.so, libncurses.so.5.7
+
+13. /opt – Optional add-on Applications
+	opt stands for optional.
+	Contains add-on applications from individual vendors.
+	add-on applications should be installed under either /opt/ or /opt/ sub-directory.
+
+14. /mnt – Mount Directory
+	Temporary mount directory where sysadmins can mount file systems.
+
+15. /media – Removable Media Devices
+	Temporary mount directory for removable devices.
+	For examples, /media/cdrom for CD-ROM; /media/floppy for floppy drives; /media/cdrecorder for CD writer
+
+16. /srv – Service Data
+	srv stands for service.
+	Contains server specific services related data.
+	For example, /srv/cvs contains CVS related data.

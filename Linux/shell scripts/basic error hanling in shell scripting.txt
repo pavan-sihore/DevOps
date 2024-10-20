@@ -1,0 +1,51 @@
+Basic Error Handling:
+
+Using Exit Status
+
+Every command in a shell script returns an exit status. A status of 0 typically means success, while any non-zero status indicates an error.
+
+1) Using if statements
+Note: You can use if statements to check the exit status of commands:
+Example:
+
+	#!/bin/bash
+
+	# Trying to create a directory
+	mkdir /path/to/directory
+
+	# Check if the command succeeded
+	if [ $? -eq 0 ]; then
+		echo "Directory created successfully."
+	else
+		echo "Error: Directory creation failed."
+	fi
+
+
+2) Using Functions for Reusability
+Note: You can define functions to encapsulate error handling:
+Example: 
+
+	handle_error() {
+		echo "Error occurred in the script."
+		# You can also log the error or exit with a specific code
+		exit 1
+	}
+
+	# Example of a command that might fail
+	mkdir /path/to/directory || handle_error
+
+
+3) Using trap
+Note: The trap command can be used to catch errors and execute a function when a script exits unexpectedly:
+Example:
+
+	#!/bin/bash
+
+	cleanup() {
+		echo "Cleaning up before exit."
+	}
+
+	trap cleanup EXIT
+
+	# Example command that could fail
+	mkdir /path/to/directory || { echo "Directory creation failed."; exit 1; }

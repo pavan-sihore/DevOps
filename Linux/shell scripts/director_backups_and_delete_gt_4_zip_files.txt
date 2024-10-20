@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Check if the directory argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 /path/to/directory"
+    exit 1
+fi
+
+# Get the current timestamp
+timestamp=$(date '+%Y-%m-%d_%H-%M-%S')
+
+# Define the backup directory
+backup_dir="$HOME/backups"
+
+# Create the backups directory if it doesn't exist
+mkdir -p "$backup_dir"
+
+# Define the name of the zip file
+zip_file="${backup_dir}/$(basename "$1")_${timestamp}.zip"
+
+# Zip the specified directory
+zip -r "$zip_file" "$1"
+
+# Check if the zip command was successful
+if [ $? -eq 0 ]; then
+    echo "Backup of '$1' completed successfully: $zip_file"
+else
+    echo "Error: Backup failed."
+    exit 1
+fi
+
+# Count the number of zip files in the backup directory
+zip_count=$(ls -1 "$backup_dir"/*.zip 2>/dev/null | wc -l)
+
+# If there are more than 4 zip files, delete the oldest ones
+if [ "$zip_count" -gt 4 ]; then
+    echo "More than 4 backup files found. Deleting the oldest files..."
+    # Find and delete the oldest zip files, keeping only the newest 4
+    ls -t "$backup_dir"/*.zip | tail -n +5 | xargs rm -f
+    echo "Old backup files deleted."
+fi

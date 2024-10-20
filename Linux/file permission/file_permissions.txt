@@ -1,0 +1,75 @@
+Description: The chmod command in Linux is used to change the file permissions for a file or directory. It controls who can read, write, or execute the file.
+
+Basic Syntax: chmod [options] mode file
+Command: chmod [options] mode file
+
+
+Understanding File Permissions
+Permissions are typically represented by three types of users:
+
+	1) User (u): The owner of the file.
+	2) Group (g): The group that owns the file.
+	3) Others (o): All other users.
+	
+	Each type of user can have three types of permissions:
+
+	1) Read (r): Permission to read the file.
+	2) Write (w): Permission to modify the file.
+	3) Execute (x): Permission to execute the file (if it's a script or program).
+
+Numeric Mode
+Permissions can be set using numeric values:
+
+	1) 4 for Read (r)
+	2) 2 for Write (w)
+	3) 1 for Execute (x)
+
+You can combine these values to set multiple permissions:
+
+	1) 7 (4+2+1) = Read, Write, Execute
+	2) 6 (4+2) = Read, Write
+	3) 5 (4+1) = Read, Execute
+	4) 4 = Read
+	5) 3 (2+1) = Write, Execute
+	6) 2 = Write
+	7) 1 = Execute
+	8) 0 = No permissions
+
+
+Example: To set a file to be readable, writable, and executable by the user, and readable and executable by the group and others:
+
+command: chmod 755 filename
+
+
+Symbolic Mode
+You can also use symbolic notation to change permissions:
+
+	1) + to add a permission
+	2) - to remove a permission
+	3) = to set exact permissions
+	
+Examples:
+
+1) Add execute permission for the user:
+Command: chmod u+x filename
+
+2) Remove write permission for the group:
+Command: chmod g-w filename
+
+3) Set exact permissions for others to read only:
+Command: chmod o=r filename
+
+
+Recursive Option:
+
+	1) If you want to change permissions for all files and directories within a directory, use the -R option:
+	Command: chmod -R 755 /path/to/directory
+
+	2) Checking Permissions:
+	Command: ls -l
+	
+Summary:
+
+	1) Use chmod to set permissions for files and directories.
+	2) You can use numeric or symbolic notation to specify permissions.
+	3) Always check permissions after changing them to ensure they are set as intended.

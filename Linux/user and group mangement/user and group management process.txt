@@ -1,0 +1,98 @@
+Description: User management in Linux involves a few key commands for adding, modifying, and managing users and groups. Here's an overview of the most commonly used commands:
+
+ 1. Adding Users
+
+	Action: adduser or useradd
+		1) adduser: A higher-level command that is more user-friendly. It typically prompts for additional information.
+		2) useradd: A lower-level command that adds a user without any prompts.
+
+	Example1: using adduser:
+	Command: sudo adduser username
+
+	Example2: using useradd:
+	Command: sudo useradd -m username
+
+ 	The -m option creates a home directory for the user.
+
+ 2. Deleting Users
+
+	Action: deluser or userdel
+	1) deluser: A higher-level command that may also remove the user’s home directory and files.
+	2) userdel: A lower-level command that deletes a user account.
+
+	Example using deluser:
+	Command: sudo deluser username
+
+	Example using userdel:
+	Command: sudo userdel username
+
+	Action: To also remove the user's home directory:
+	Command: sudo userdel -r username
+
+	Note: The -r option removes the user's home directory and mail spool.
+
+ 3. Modifying Users
+
+	1) usermod
+	Description: This command modifies user account details, such as adding a user to a group or changing the user's home directory.
+
+	Example: Change the user’s home directory
+    Command: sudo usermod -d /new/home/directory username
+
+	Example: add a user to a group
+	Command: sudo usermod -aG groupname username
+
+	Note: The -aG option appends the user to the specified group.
+
+ 4. Adding Groups
+
+	Action:  addgroup or groupadd
+	1) addgroup: A higher-level command for adding groups.
+	2) groupadd: A lower-level command that adds a group without prompts.
+
+	Example1: using addgroup
+	Command: sudo addgroup groupname
+
+	Example2: using groupadd
+	Command: sudo groupadd groupname
+
+
+ 5. Deleting Groups
+
+	Action: delgroup or groupdel
+	1) delgroup: A higher-level command for deleting groups.
+	2) groupdel: A lower-level command that deletes a group.
+
+	Example using delgroup:
+	Command: sudo delgroup groupname
+
+	Example using groupdel:
+	Command: sudo groupdel groupname
+
+ 6. Viewing Users and Groups
+	 Command: cat /etc/passwd
+
+	 Note: This command displays a list of users on the system along with their details.
+
+	 Command: cat /etc/passwd
+	 Command: cat /etc/group
+	 
+	 Note: This command shows the groups and their members.
+	 Command: cat /etc/group
+
+ 7. Changing Passwords
+	 passwd: This command is used to change a user’s password.
+
+	 Example:
+	 Command: sudo passwd username
+
+ Summary
+	1) Adding Users: adduser or useradd
+	2) Deleting Users: deluser or userdel
+	3) Modifying Users: usermod
+	4) Adding Groups: addgroup or groupadd
+	5) Deleting Groups: delgroup or groupdel
+	6) Viewing Users and Groups: cat /etc/passwd and cat /etc/group
+	7) Changing Passwords: passwd
+
+Note: These commands help you manage user accounts and groups effectively in a Linux environment!
