@@ -7,6 +7,7 @@ This is a simple Spring Boot web application built with JDK 17. It includes a de
 ## Requirements
 
 - **JDK Version**: 17
+- **Spring Boot Version**: 3.3.4
 - **Port**: 9192
 
 ## Application Endpoints
