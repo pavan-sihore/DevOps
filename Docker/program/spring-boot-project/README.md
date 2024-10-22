@@ -41,3 +41,40 @@ Ensure that you have the following dependencies in your `pom.xml` or `build.grad
 ## Conclusion
 
 This Spring Boot application demonstrates a simple setup with a default controller and an actuator for monitoring the application's health. Modify and extend it as needed for your development needs!
+
+## Docker Commands
+
+```bash
+# Create Image of Spring Boot Application
+$ docker build -t springbootapp .
+```
+
+```bash
+# Run Application
+$ docker run -it -d --name springBootApp1 springbootapp -p 9192:9192
+```
+
+```bash
+# Check Status
+$ docker pc
+```
+
+```bash
+# Check Log
+$ docker logs springBootApp1
+```
+
+```bash
+# Stop Docker container
+$ docker container stop <container-id>
+```
+
+```bash
+# Start Docker container
+$ docker start <container-id>
+```
+
+```bash
+# download jar file in local machine
+$ docker cp springBootApp1:/app/spring-boot-docker.jar ./
+```

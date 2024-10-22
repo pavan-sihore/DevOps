@@ -1,0 +1,20 @@
+# Install net-tools
+
+## Debian/Ubuntu:
+
+sudo apt update
+
+sudo apt install net-tools
+
+## CentOS/RHEL:
+
+sudo yum install net-tools
+
+## Fedora:
+
+sudo dnf install net-tools
+
+
+After installing, you should be able to use netstat:
+
+netstat -tuln

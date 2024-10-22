@@ -1,0 +1,134 @@
+# Docker dev build command
+
+```bash
+# if you want to run specific docker file
+$ docker build -f Dockerfile.dev -t reactapp .
+```
+
+```bash
+# otherwise you can run simple 
+$ docker build -t reactapp .
+```
+
+```bash
+# Docker build command to avoid using cached layers:
+$ docker build --no-cache -t your-app-name .
+```
+
+
+```bash
+# Check Docker image
+$ docker images
+```
+
+```bash
+# Docker run command
+$ docker run -it --name reactAPP1 reactapp -p 3000:3000
+```
+
+```bash
+# Docker run with detaich mode command
+$ docker run -it -d --name reactAPP1 reactapp -p 3000:3000
+```
+
+```bash
+# Check Docker runing container
+$ docker ps` or `docker container ls
+```
+
+```bash
+# Check Docker running status/log
+$ docker logs <container-id>
+```
+
+```bash
+# Stop Docker container
+$ docker container stop <container-id>
+```
+
+```bash
+# Start Docker container
+$ docker container start <container-id>
+```
+
+```bash
+# Production Dockerfile running command with nginx server
+$ docker build -t reactapp .
+``` 
+
+```bash
+# Then create image
+$ docker run --name reactContainer -d -p 3000:80 reactapp
+```
+
+```bash
+# Check image
+$ docker images
+```
+
+```bash
+# Up Docker container using compose file
+$ docker-compose up -d
+```
+
+```bash
+# Do Docker container
+$ docker-compose down
+```
+
+# Steps to Log Into a Docker Container
+
+```bash
+# Check Runnin Image
+$ docker ps
+```
+
+##  Use docker exec to Access the Container: Ex. docker exec -it container_name_or_id /bin/bash
+
+```bash
+# Login with bash
+$ docker exec -it my_container /bin/bash
+```
+
+```bash
+# If Bash is not available:
+$ docker exec -it my_container /bin/sh
+```
+
+## Exiting the Container
+
+To exit the container’s shell, simply type exit and press Enter.
+
+Note: 
+
+Ensure that the container is running; otherwise, you won't be able to access it.
+You need appropriate permissions to run the command, so make sure you're either the user that created the container or have sufficient privileges.
+
+
+## Remove Docker Container
+
+```bash
+$ docker rm <container_name_or_id>
+```
+
+## Remove Docker Image
+
+```bash
+# List Docker Images
+$ docker images
+```
+
+```bash
+# Remove the Docker Image
+$ docker rmi image_name_or_id
+```
+
+```bash
+# Force Removal (if needed)
+$ docker rmi -f image_name_or_id
+```
+
+```bash
+# Remove Dangling Images
+$ docker image prune
+```
